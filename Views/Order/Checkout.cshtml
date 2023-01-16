@@ -4,6 +4,7 @@
 	<h3 class="my-7">
 		you're just one step away form your deliciouse pies .
 	</h3>
+    <div asp-validation-summary="All" class="text-danger"></div>
 	<div class="col-6">
 		<div class="row g-2">
 			<div class="col-12">
@@ -27,7 +28,7 @@
                 <label asp-for="AddressLine2" class="form-label"></label>
                 <input asp-for="AddressLine2" class="form-control" />
                 <span asp-validation-for="AddressLine2" class="text-danger"></span>
-            </div>
+            </div>  
 
             <div class="col-6">
                 <label asp-for="City" class="form-label"></label>

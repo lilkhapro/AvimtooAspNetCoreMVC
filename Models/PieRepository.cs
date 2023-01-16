@@ -26,7 +26,7 @@ namespace WebAppVide.Models
                 return webAppPieDbContext.Pies.Include(c => c.Category).Where(
                     p => p.IsPieOfTheWeek);
             }
-        }
+        } 
 
         public Pie? GetPieById(int pieId)
         {
@@ -35,7 +35,7 @@ namespace WebAppVide.Models
 
         public IEnumerable<Pie> SearchPies(string searchQuery)
         {
-            throw new NotImplementedException();
+            return webAppPieDbContext.Pies.Where(p => p.Name.Contains(searchQuery));
         }
     }
-}
+} 

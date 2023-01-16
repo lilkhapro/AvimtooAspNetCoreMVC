@@ -50,5 +50,10 @@ namespace WebAppVide.Controllers
 
             return View(pie);
         }
+
+        public IActionResult Search(string keyword)
+        {
+            return View();
+        }
     }
 }

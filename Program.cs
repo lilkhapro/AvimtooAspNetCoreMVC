@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using WebAppVide.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,12 +13,19 @@ builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCa
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
+builder.Services.AddRazorPages();
 builder.Services.AddDbContext<WebAppPieDbContext>(option =>
 {
     option.UseSqlServer(
         builder.Configuration["ConnectionStrings:WebAppPieDbContextConnection"]);
 });
+//api controllers
+builder.Services.AddControllers();
 var app = builder.Build();
 
 app.UseStaticFiles();
@@ -27,6 +35,10 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 app.MapDefaultControllerRoute();
+app.MapRazorPages();
+
+//api controllers
+app.MapControllers();
 
 DbInitializer.Seed(app);
 
