@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebAppVide.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("WebAppPieDbContextConnection") ?? throw new InvalidOperationException("Connection string 'WebAppPieDbContextConnection' not found.");
 
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -19,23 +21,37 @@ builder.Services.AddControllersWithViews()
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
 builder.Services.AddRazorPages();
+
+//update after adding authentification 
 builder.Services.AddDbContext<WebAppPieDbContext>(option =>
-{
-    option.UseSqlServer(
-        builder.Configuration["ConnectionStrings:WebAppPieDbContextConnection"]);
-});
+    option.UseSqlServer(connectionString));;
+
+builder.Services.AddDefaultIdentity<IdentityUser>()
+    .AddEntityFrameworkStores<WebAppPieDbContext>();;
+
+//ajout blazor
+builder.Services.AddServerSideBlazor();
 //api controllers
 builder.Services.AddControllers();
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseSession();
-if(app.Environment.IsDevelopment())
+//add authentication
+app.UseAuthentication();
+app.UseAuthorization();
+
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
+
+//ajoput blazor
+app.MapBlazorHub();
+app.UseRouting();
+app.MapFallbackToPage("/app/{*catchall}", "/App/Index"); 
 
 //api controllers
 app.MapControllers();

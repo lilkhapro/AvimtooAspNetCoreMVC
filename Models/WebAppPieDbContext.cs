@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAppVide.Models
 {
-    public class WebAppPieDbContext: DbContext
+    public class WebAppPieDbContext: IdentityDbContext
     {
         public WebAppPieDbContext(DbContextOptions<WebAppPieDbContext> options)
             : base(options)

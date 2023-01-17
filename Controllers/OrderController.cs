@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAppVide.Models;
 
 namespace WebAppVide.Controllers
 {
+    
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;
