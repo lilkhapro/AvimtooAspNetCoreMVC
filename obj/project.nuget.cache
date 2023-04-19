@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AV1V7uraA84e8U3Dk3xB6NWlYw6guzu055QWQ/I2QgGk5xjPH/P6RM5UYa6jCDwFWfP1HEFuRjblptUZbMNwLw==",
+  "dgSpecHash": "NFHnIjNn40KdDiGnjcZWM3JlClwzIb3L9opg2oEpw69MG2jH0reJX6tHFZTKZ6JyKtNR9SOYFMmTUhMqzBtKvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc\\source\\repos\\WebAppVide\\WebAppVide.csproj",
   "expectedPackageFiles": [
@@ -193,7 +193,11 @@
     "C:\\Users\\pc\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\pc\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512"
   ],
   "logs": []
 }
